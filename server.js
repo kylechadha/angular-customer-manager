@@ -6,25 +6,32 @@ app.use(express.static(__dirname, '/'));
 
 // API Routes (would not put this here in a real app)
 // --------------------------------
-app.get('/customers/:id', function(req, res) {
+app.get('/api/customers/:id', function(req, res) {
+
   var customerId = parseInt(req.params.id);
   var data = {};
-  for (var i=0,len=customers.length;i<len;i++) {
+
+  for (var i=0; i < customers.length; i++) {
     if (customers[i].id === customerId) {
-     data = customers[i];
-     break;
-   }
- }  
- res.json(data);
+      data = customers[i];
+      break;
+    }
+  }
+
+  res.json(data);
 });
+
 
 app.get('/api/customers', function(req, res) {
   res.json(customers);
     //res.json(500, { error: 'An error has occurred!' });
   });
 
+
 app.get('/api/orders', function(req, res) {
+
   var orders = [];
+
   for (var i=0,len=customers.length;i<len;i++) {
     if (customers[i].orders) {
       for (var j=0,ordersLen=customers[i].orders.length;j<ordersLen;j++) {
@@ -32,8 +39,11 @@ app.get('/api/orders', function(req, res) {
       }
     }
   }  
+
   res.json(orders);
+
 });
+
 
 app.delete('/api/customers/:id', function(req, res) {
   var customerId = parseInt(req.params.id);
@@ -47,10 +57,6 @@ app.delete('/api/customers/:id', function(req, res) {
  }  
  res.json(data);
 });
-
-
-app.listen(8080);
-console.log('Express listening on port 8080');
 
 
 // API Data (would not put this here in a real app)
@@ -119,3 +125,7 @@ var customers =
       ]
     }
   ];
+
+
+app.listen(8080);
+console.log('Express listening on port 8080');
