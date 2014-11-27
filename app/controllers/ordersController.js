@@ -6,7 +6,7 @@
     $scope.customer = null;
     
     function init() {
-      $scope.customer = customersFactory.getCustomers(customerId);
+      $scope.customer = customersFactory.getCustomer(customerId);
     }
     
     init();
