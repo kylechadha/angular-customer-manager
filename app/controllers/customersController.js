@@ -7,15 +7,15 @@
     $scope.customers = [];
 
     function init() {
-      
+      $scope.customers = customersFactory.getCustomers();
     }
+
+    init();
 
     $scope.doSort = function(propName) {
       $scope.sortBy = propName;
       $scope.reverse = !$scope.reverse;
     };
-
-    $scope.customers = customersFactory.getCustomers();
 
   };
 
