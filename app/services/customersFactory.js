@@ -73,9 +73,22 @@
     // }
 
     return {
+
       getCustomers: function() {
         return customers;
+      },
+
+      getCustomer: function(customerId) {
+
+        for (var i=0; i < customers.length; i++) {
+          if (customers[i].id === parseInt(customerId)) {
+            return customers[i];
+          }
+        }
+        
+        return null;
       }
+
     }
 
   };
