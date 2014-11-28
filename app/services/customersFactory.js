@@ -16,11 +16,21 @@
 
       getCustomer: function(customerId) {
         return $http.get('/api/customers/' + customerId);
+      },
+
+      getOrders: function() {
+          return $http.get('/orders');
+      },
+      
+      deleteCustomer: function(customerId) {
+          return $http.delete('/customers/' + customerId);
       }
 
     }
 
   };
+
+  customersFactory.$inject = ['$http'];
 
   angular.module('customersApp').factory('customersFactory', customersFactory);
 
