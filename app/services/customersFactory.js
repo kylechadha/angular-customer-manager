@@ -19,11 +19,11 @@
       },
 
       getOrders: function() {
-          return $http.get('/orders');
+          return $http.get('/api/orders');
       },
       
       deleteCustomer: function(customerId) {
-          return $http.delete('/customers/' + customerId);
+          return $http.delete('/api/customers/' + customerId);
       }
 
     }

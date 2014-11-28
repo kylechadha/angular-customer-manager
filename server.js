@@ -24,7 +24,7 @@ app.get('/api/customers/:id', function(req, res) {
 
 app.get('/api/customers', function(req, res) {
   res.json(customers);
-    // res.json(500, { error: 'HOLY!FUCK!! Shit just went DOWN brother!' });
+    // res.json(500, { error: 'Oh no!! Shit just went DOWN brother!' });
   });
 
 
